@@ -1,0 +1,23 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cendekia/todo-nativescript.git"
+  },
+  "author": "Cendekia Pramana Putra <cendiqkrn@gmail.com> (http://cendekiapp.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cendekia/todo-nativescript/issues"
+  },
+  "homepage": "https://github.com/cendekia/todo-nativescript",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-build-dir": "0.0.4"
+  }
+}

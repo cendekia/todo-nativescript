@@ -1,0 +1,8 @@
+<!-- todo-page.xml -->
+<Page navigatedTo="load">
+    <ListView items="{{ todos }}">
+        <ListView.itemTemplate>
+            <Label text="{{ name }}" />
+        </ListView.itemTemplate>
+    </ListView>
+</Page>
