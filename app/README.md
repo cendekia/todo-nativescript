@@ -1,4 +1,4 @@
-template-hello-world
+Todo App
 ====================
 
-Hello World Project Template for NativeScript
+Todo App Project for NativeScript simple app
