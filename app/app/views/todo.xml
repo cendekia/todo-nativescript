@@ -1,0 +1,19 @@
+<!-- todo.xml -->
+<Page navigatedTo="load">
+	<StackLayout>
+		<GridLayout rows="50" style="background-color:#000000;">
+			<Label text="TODO lists" horizontalAlignment="left" style="color:#ffffff" />
+			<Button text="ADD" horizontalAlignment="right" style="color:#ffffff" tap="{{ promptTodo }}" />
+		</GridLayout>
+    <ListView items="{{ todos }}" itemTap="{{ todoListTap }}">
+        <ListView.itemTemplate>
+        	<GridLayout rows="50">
+            <Label text="{{ name }}" horizontalAlignment="left" style="{{ complete ? 'color:#cccccc' : 'color:#000000'}}" />
+          </GridLayout>
+        </ListView.itemTemplate>
+    </ListView>
+
+    <!-- this for debugging purpose -->
+    <!-- <TextView text="{{ logs ? logs : 'The logs bar'}}" /> -->
+  </StackLayout>
+</Page>
