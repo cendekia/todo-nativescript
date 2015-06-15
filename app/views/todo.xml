@@ -1,5 +1,5 @@
 <!-- todo.xml -->
-<Page navigatedTo="load">
+<Page loaded="onPageLoaded" xmlns="http://www.nativescript.org/tns.xsd" >
 	<StackLayout>
 		<GridLayout rows="50" style="background-color:#000000;">
 			<Label text="TODO lists" horizontalAlignment="left" style="color:#ffffff" />

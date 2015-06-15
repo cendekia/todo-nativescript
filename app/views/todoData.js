@@ -1,8 +1,8 @@
 // todoData.js
 var observableModule = require( "data/observable" ),
-observableArray = require( "data/observable-array" ),
+observableArrayModule = require( "data/observable-array" ),
 dialogs = require("ui/dialogs"),
-localSettings = require("local-settings"),
+localSettings = require("application-settings"),
 Todo = require( "../shared/models/Todo" ),
 defaultValues = [
     new Todo( "Wake up" ),
@@ -18,7 +18,7 @@ if(typeof todoList == "undefined"){
 	localSettings.setString('todoLists', JSON.stringify(defaultValues));
 }
 
-data.set( "todos", new observableArray.ObservableArray(JSON.parse(todoLists)));
+data.set( "todos", new observableArrayModule.ObservableArray(JSON.parse(todoLists)));
 
 data.promptTodo = function(args) {
   dialogs.prompt({
@@ -33,14 +33,14 @@ data.promptTodo = function(args) {
     		defaultValues = JSON.parse(todoLists);
     		var newTodo = new Todo(promptResult.text);
         defaultValues.push(newTodo);
-        
+
         localSettings.setString('todoLists', JSON.stringify(defaultValues));
         todoLists = localSettings.getString('todoLists');
         
-        data.set( "todos", new observableArray.ObservableArray(JSON.parse(todoLists)));
+        data.set( "todos", new observableArrayModule.ObservableArray(JSON.parse(todoLists)));
     }
   });
-}
+};
 
 data.todoListTap = function(args){
 	var actionBtns = ["Done", "Edit", "Delete"];
@@ -70,7 +70,7 @@ data.todoListTap = function(args){
 			  	defaultValues.splice(args.index,1);
 			  	localSettings.setString('todoLists', JSON.stringify(defaultValues));
 			    todoLists = localSettings.getString('todoLists');
-			    data.set( "todos", new observableArray.ObservableArray(JSON.parse(todoLists)));
+			    data.set( "todos", new observableArrayModule.ObservableArray(JSON.parse(todoLists)));
 			  }
 			})
 	  }else if(result == 'Edit'){
@@ -86,7 +86,7 @@ data.todoListTap = function(args){
 	  			defaultValues[args.index].name = promptResult.text;
 	  			localSettings.setString('todoLists', JSON.stringify(defaultValues));
 			    todoLists = localSettings.getString('todoLists');
-			    data.set( "todos", new observableArray.ObservableArray(JSON.parse(todoLists)));
+			    data.set( "todos", new observableArrayModule.ObservableArray(JSON.parse(todoLists)));
 	  		}
 	  	})
 	  }else if(result == 'Done'){
@@ -100,7 +100,7 @@ data.todoListTap = function(args){
 			  	defaultValues[args.index].complete = true;
 			  	localSettings.setString('todoLists', JSON.stringify(defaultValues));
 			    todoLists = localSettings.getString('todoLists');
-			    data.set( "todos", new observableArray.ObservableArray(JSON.parse(todoLists)));
+			    data.set( "todos", new observableArrayModule.ObservableArray(JSON.parse(todoLists)));
 			  }
 			});
 	  }else if(result == 'Undone'){
@@ -114,7 +114,7 @@ data.todoListTap = function(args){
 			  	defaultValues[args.index].complete = false;
 			  	localSettings.setString('todoLists', JSON.stringify(defaultValues));
 			    todoLists = localSettings.getString('todoLists');
-			    data.set( "todos", new observableArray.ObservableArray(JSON.parse(todoLists)));
+			    data.set( "todos", new observableArrayModule.ObservableArray(JSON.parse(todoLists)));
 			  }
 			});
 	  }
@@ -122,6 +122,6 @@ data.todoListTap = function(args){
 	  // this for debugging purpose
 	  // data.set("logs", result+'#'+args.index+'#'+todoLists);
 	});
-}
+};
 
-module.exports = data;
+exports.data = data;
